@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import store from "@/store";
 import HomeView from '@/views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -10,7 +9,13 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '',
+        name: 'homemain',
         component: () => import('@/views/HomeMain.vue')
+      },
+      {
+        path: '404',
+        name: 'notfound',
+        component: () => import('@/views/NotFound.vue')
       }
     ]
   },

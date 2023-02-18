@@ -285,7 +285,7 @@ export default defineComponent({
   data() {
     return {
       /**窗口宽度 */
-      screen_width: ref(0),
+      screen_width: window.innerWidth,
       /**弹出窗口状态 */
       dialog: false,
       /**头像 */
@@ -365,17 +365,18 @@ export default defineComponent({
         ],
       },
       headimg_id: "pc-home-headimg",
-      head_title_html: "<span>泰迪熊的小站</span>",
+      head_title_html: "<span>泰迪熊的小站</span>"
     };
   },
   computed: {
     /**显示类型 */
     screen_type(): "mobile" | "pc" {
+      let ua: "pc" | "mobile" = this.screen_width >= 750 ? "pc" : "mobile";
       this.$store.commit("saveValue", {
         name: "UA",
-        value: this.screen_width >= 750 ? "pc" : "mobile",
+        value: ua,
       });
-      return this.$store.state.UA;
+      return ua;
     },
   },
   methods: {
@@ -387,7 +388,7 @@ export default defineComponent({
         document.location = url;
       }
     },
-  },
+  }
 });
 </script>
 <style>

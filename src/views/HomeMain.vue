@@ -48,8 +48,7 @@ export default defineComponent({
       dialog: false,
     };
   },
-  created() {
-    this.copyright_text = `CopyRight © 2019-${new Date().getFullYear()} maohaoji.com 版权所有`;
+  mounted() {
     document.title = "欢迎访问毛浩吉的网站呐";
   },
   methods: {
